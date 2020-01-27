@@ -12,27 +12,24 @@ const Ads = () => {
     };
     fetchCars();
   }, []);
-  console.log(cars);
 
   const addCar = async () => {
     const res = await axios("/API/InformacijaTestui");
     setCars(cars => [...cars, res.data]);
   };
 
-  if (cars.length > 0) {
-    return (
-      <div>
-        <div className="ads-container mt-3">
-          {cars.map((car, i) => (
-            <SingleAd key={i} car={car} />
-          ))}
-        </div>
-        <button onClick={() => addCar()} className="btn btn-primary my-3">
-          Pridėti
-        </button>
+  return (
+    <div>
+      <div className="ads-container mt-3">
+        {cars.map((car, i) => (
+          <SingleAd key={i} car={car} />
+        ))}
       </div>
-    );
-  } else return null;
+      <button onClick={() => addCar()} className="btn btn-primary my-3">
+        Pridėti
+      </button>
+    </div>
+  );
 };
 
 export default Ads;

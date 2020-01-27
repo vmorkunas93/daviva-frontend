@@ -4,10 +4,9 @@ import { Carousel } from "react-bootstrap";
 const SingleAd = props => {
   return (
     <div className="card shadow-sm">
-      {/* <img src={props.car.nuotraukos[0]} className="card-img-top" alt="..." /> */}
       <Carousel indicators={false} interval={null}>
         {props.car.nuotraukos.map((pic, i) => (
-          <Carousel.Item>
+          <Carousel.Item key={i}>
             <img className="d-block w-100" src={pic} alt="First slide" />
           </Carousel.Item>
         ))}
